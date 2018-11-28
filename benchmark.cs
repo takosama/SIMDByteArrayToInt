@@ -9,11 +9,10 @@ namespace ConsoleApp35
         volatile string Str = "98765432";
         volatile byte* ptr;
 
-        Vector128<float>[] mul0Array = new Vector128<float>[9];
-        Vector128<float>[] mul1Array = new Vector128<float>[9];
-
-        Vector128<float>[] cmp0Array = new Vector128<float>[9];
-        Vector128<float>[] cmp1Array = new Vector128<float>[9];
+        Vector128<int>[] mul0Array = new Vector128<int>[9];
+        Vector128<int>[] mul1Array = new Vector128<int>[9];
+        Vector128<int>[] cmp0Array = new Vector128<int>[9];
+        Vector128<int>[] cmp1Array = new Vector128<int>[9];
 
         public str()
         {
@@ -28,46 +27,46 @@ namespace ConsoleApp35
             arr[7] = (byte)'2';
             ptr = arr;
 
-            mul0Array[0] = Sse.SetVector128(0, 0, 0, 0);
-            mul0Array[1] = Sse.SetVector128(0, 0, 0, 1);
-            mul0Array[2] = Sse.SetVector128(0, 0, 1, 10);
-            mul0Array[3] = Sse.SetVector128(0, 1, 10, 100);
-            mul0Array[4] = Sse.SetVector128(1, 10, 100, 1000);
-            mul0Array[5] = Sse.SetVector128(10, 100, 1000, 10000);
-            mul0Array[6] = Sse.SetVector128(100, 1000, 10000, 100000);
-            mul0Array[7] = Sse.SetVector128(1000, 10000, 100000, 1000000);
-            mul0Array[8] = Sse.SetVector128(10000, 100000, 1000000, 10000000);
+            mul0Array[0] = Sse2.SetVector128((int)0, 0, 0, 0);
+            mul0Array[1] = Sse2.SetVector128((int)0, 0, 0, 1);
+            mul0Array[2] = Sse2.SetVector128((int)0, 0, 1, 10);
+            mul0Array[3] = Sse2.SetVector128((int)0, 1, 10, 100);
+            mul0Array[4] = Sse2.SetVector128((int)1, 10, 100, 1000);
+            mul0Array[5] = Sse2.SetVector128((int)10, 100, 1000, 10000);
+            mul0Array[6] = Sse2.SetVector128((int)100, 1000, 10000, 100000);
+            mul0Array[7] = Sse2.SetVector128((int)1000, 10000, 100000, 1000000);
+            mul0Array[8] = Sse2.SetVector128((int)10000, 100000, 1000000, 10000000);
 
 
-            mul1Array[0] = Sse.SetVector128(0, 0, 0, 0);
-            mul1Array[1] = Sse.SetVector128(0, 0, 0, 0);
-            mul1Array[2] = Sse.SetVector128(0, 0, 0, 0);
-            mul1Array[3] = Sse.SetVector128(0, 0, 0, 0);
-            mul1Array[4] = Sse.SetVector128(0, 0, 0, 0);
-            mul1Array[5] = Sse.SetVector128(0, 0, 0, 1);
-            mul1Array[6] = Sse.SetVector128(0, 0, 1, 10);
-            mul1Array[7] = Sse.SetVector128(0, 1, 10, 100);
-            mul1Array[8] = Sse.SetVector128(1, 10, 100, 1000);
+            mul1Array[0] = Sse2.SetVector128((int)0, 0, 0, 0);
+            mul1Array[1] = Sse2.SetVector128((int)0, 0, 0, 0);
+            mul1Array[2] = Sse2.SetVector128((int)0, 0, 0, 0);
+            mul1Array[3] = Sse2.SetVector128((int)0, 0, 0, 0);
+            mul1Array[4] = Sse2.SetVector128((int)0, 0, 0, 0);
+            mul1Array[5] = Sse2.SetVector128((int)0, 0, 0, 1);
+            mul1Array[6] = Sse2.SetVector128((int)0, 0, 1, 10);
+            mul1Array[7] = Sse2.SetVector128((int)0, 1, 10, 100);
+            mul1Array[8] = Sse2.SetVector128((int)1, 10, 100, 1000);
 
-            cmp0Array[0] = Sse.SetVector128(0, 0, 0, 0);
-            cmp0Array[1] = Sse.SetVector128(0, 0, 0, 1);
-            cmp0Array[2] = Sse.SetVector128(0, 0, 1, 1);
-            cmp0Array[3] = Sse.SetVector128(0, 1, 1, 1);
-            cmp0Array[4] = Sse.SetVector128(1, 1, 1, 1);
-            cmp0Array[5] = Sse.SetVector128(1, 1, 1, 1);
-            cmp0Array[6] = Sse.SetVector128(1, 1, 1, 1);
-            cmp0Array[7] = Sse.SetVector128(1, 1, 1, 1);
+            cmp0Array[0] = Sse2.SetVector128((int)0, 0, 0, 0);
+            cmp0Array[1] = Sse2.SetVector128((int)0, 0, 0, 1);
+            cmp0Array[2] = Sse2.SetVector128((int)0, 0, 1, 1);
+            cmp0Array[3] = Sse2.SetVector128((int)0, 1, 1, 1);
+            cmp0Array[4] = Sse2.SetVector128((int)1, 1, 1, 1);
+            cmp0Array[5] = Sse2.SetVector128((int)1, 1, 1, 1);
+            cmp0Array[6] = Sse2.SetVector128((int)1, 1, 1, 1);
+            cmp0Array[7] = Sse2.SetVector128((int)1, 1, 1, 1);
 
 
-            cmp1Array[0] = Sse.SetVector128(0, 0, 0, 0);
-            cmp1Array[1] = Sse.SetVector128(0, 0, 0, 0);
-            cmp1Array[2] = Sse.SetVector128(0, 0, 0, 0);
-            cmp1Array[3] = Sse.SetVector128(0, 0, 0, 0);
-            cmp1Array[4] = Sse.SetVector128(0, 0, 0, 0);
-            cmp1Array[5] = Sse.SetVector128(0, 0, 0, 1);
-            cmp1Array[6] = Sse.SetVector128(0, 0, 1, 1);
-            cmp1Array[7] = Sse.SetVector128(0, 1, 1, 1);
-            cmp1Array[8] = Sse.SetVector128(1, 1, 1, 1);
+            cmp1Array[0] = Sse2.SetVector128((int)0, 0, 0, 0);
+            cmp1Array[1] = Sse2.SetVector128((int)0, 0, 0, 0);
+            cmp1Array[2] = Sse2.SetVector128((int)0, 0, 0, 0);
+            cmp1Array[3] = Sse2.SetVector128((int)0, 0, 0, 0);
+            cmp1Array[4] = Sse2.SetVector128((int)0, 0, 0, 0);
+            cmp1Array[5] = Sse2.SetVector128((int)0, 0, 0, 1);
+            cmp1Array[6] = Sse2.SetVector128((int)0, 0, 1, 1);
+            cmp1Array[7] = Sse2.SetVector128((int)0, 1, 1, 1);
+            cmp1Array[8] = Sse2.SetVector128((int)1, 1, 1, 1);
         }
 
         Vector128<sbyte> mask0 = Sse2.SetVector128(
@@ -85,7 +84,7 @@ namespace ConsoleApp35
             );
 
         Vector128<sbyte> subtmp = Sse2.SetAllVector128((sbyte)48);
-        Vector128<float> _9 = Sse.SetAllVector128((float)9);
+        Vector128<int> _9 = Sse2.SetAllVector128((int)9);
         Vector128<float> mul0 = Sse.SetVector128(10000, 100000, 1000000, 10000000f);
         Vector128<float> mul1 = Sse.SetVector128(1, 10, 100, 1000f);
 
@@ -116,13 +115,7 @@ namespace ConsoleApp35
         }
         volatile int n;
         volatile int m;
-        [BenchmarkDotNet.Attributes.Benchmark]
-        public unsafe void _TryParseSIMD()
-        {
-            n = TryParseSIMD(ptr, out var _m);
-            m = _m;
-        }
-
+    
         [BenchmarkDotNet.Attributes.Benchmark]
         public unsafe void _TryParseSIMDUseCount()
         {
@@ -130,34 +123,6 @@ namespace ConsoleApp35
             m = _m;
         }
 
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p">byte配列のポインタ</param>
-        /// <param name="n">戻り値</param>
-        /// <returns>-1または0 -1失敗</returns>
-        public int TryParseSIMD(byte* p, out int n)
-        {
-            var tmp = Sse2.LoadVector128(p);
-            var tmp1 = Sse.StaticCast<byte, sbyte>(tmp);
-            tmp1 = Sse2.Subtract(tmp1, subtmp);
-
-            var data0 = Ssse3.Shuffle(tmp1, mask0);
-            var data0f = Sse2.ConvertToVector128Single(Sse.StaticCast<sbyte, int>(data0));
-
-            var data1 = Ssse3.Shuffle(tmp1, mask1);
-            var data1f = Sse2.ConvertToVector128Single(Sse.StaticCast<sbyte, int>(data1));
-
-            var ans = Sse2.Add(Sse2.ConvertToVector128Int32(Sse41.DotProduct(data0f, mul0, 0b11111000)), Sse2.ConvertToVector128Int32(Sse41.DotProduct(data1f, mul1, 0b11111000)));
-            n = Sse41.Extract(ans, 3);
-
-            var com0 = Sse.CompareGreaterThan(data0f, _9);
-            var com1 = Sse.CompareGreaterThan(data1f, _9);
-
-            return Sse41.Extract(Sse.StaticCast<float, int>(Sse41.DotProduct(com0, com1, 0b11111000)), 3);
-        }
 
 
 
@@ -169,18 +134,29 @@ namespace ConsoleApp35
             tmp1 = Sse2.Subtract(tmp1, subtmp);
 
             var data0 = Ssse3.Shuffle(tmp1, mask0);
-            var data0f = Sse2.ConvertToVector128Single(Sse.StaticCast<sbyte, int>(data0));
+
 
             var data1 = Ssse3.Shuffle(tmp1, mask1);
-            var data1f = Sse2.ConvertToVector128Single(Sse.StaticCast<sbyte, int>(data1));
 
-            var ans = Sse2.Add(Sse2.ConvertToVector128Int32(Sse41.DotProduct(data0f, mul0Array[cnt], 0b11111000)), Sse2.ConvertToVector128Int32(Sse41.DotProduct(data1f, mul1Array[cnt], 0b11111000)));
-            n = Sse41.Extract(ans, 3);
 
-            var com0 = Sse.CompareGreaterThan(Sse.Multiply(data0f, cmp0Array[cnt]), _9);
-            var com1 = Sse.CompareGreaterThan(Sse.Multiply(data1f, cmp1Array[cnt]), _9);
+            var mul0 = Sse41.MultiplyLow(Sse.StaticCast<sbyte, int>(data0), mul0Array[cnt]);
+            var mul1 = Sse41.MultiplyLow(Sse.StaticCast<sbyte, int>(data1), mul1Array[cnt]);
+            var x = Sse2.Add(mul0, mul1);
+            x = Ssse3.HorizontalAdd(x, x);
+            x = Ssse3.HorizontalAdd(x, x);
 
-            return Sse41.Extract(Sse.StaticCast<float, int>(Sse41.DotProduct(com0, com1, 0b11111000)), 3);
+            n = Sse41.Extract(x, 3);
+
+
+
+            var com0 = Sse2.CompareGreaterThan(Sse41.MultiplyLow(Sse.StaticCast<sbyte, int>(data0), cmp0Array[cnt]), _9);
+            var com1 = Sse2.CompareGreaterThan(Sse41.MultiplyLow(Sse.StaticCast<sbyte, int>(data0), cmp1Array[cnt]), _9);
+
+            var xx = Sse2.Add(com0, com1);
+            xx = Ssse3.HorizontalAdd(xx, xx);
+            xx = Ssse3.HorizontalAdd(xx, xx);
+
+            return Sse41.Extract(xx, 3);
         }
 
         [BenchmarkDotNet.Attributes.Benchmark]
@@ -204,22 +180,22 @@ namespace ConsoleApp35
 
         unsafe static void Main(string[] args)
         {
-            //     BenchmarkDotNet.Running.BenchmarkRunner.Run<str>();
-            byte* arr = stackalloc byte[8];
-            arr[0] = (byte)'9';
-            arr[1] = (byte)'8';
-            arr[2] = (byte)'7';
-            arr[3] = (byte)'6';
-            arr[4] = (byte)'5';
-            arr[5] = (byte)'4';
-            arr[6] = (byte)'3';
-            arr[7] = (byte)'A';
-
-            var m = new str().TryParseSIMDUseCount(arr, 8, out var n);
-            //戻り値-1(エラー  n=適当な値
-
-            m = new str().TryParseSIMDUseCount(arr, 7, out n);
-            //戻り値0(通過　n=9876543
+                BenchmarkDotNet.Running.BenchmarkRunner.Run<str>();
+          //  byte* arr = stackalloc byte[8];
+          //  arr[0] = (byte)'9';
+          //  arr[1] = (byte)'8';
+          //  arr[2] = (byte)'7';
+          //  arr[3] = (byte)'6';
+          //  arr[4] = (byte)'5';
+          //  arr[5] = (byte)'4';
+          //  arr[6] = (byte)'3';
+          //  arr[7] = (byte)'A';
+          //
+          //  var m = new str().TryParseSIMDUseCount(arr, 8, out var n);
+          //  //戻り値-1(エラー  n=適当な値
+          //
+          //  m = new str().TryParseSIMDUseCount(arr, 7, out n);
+          //  //戻り値0(通過　n=9876543
 
 
             Console.ReadLine();
