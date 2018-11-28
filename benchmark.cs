@@ -62,9 +62,9 @@ namespace ConsoleApp35
             var data1 = Ssse3.Shuffle(tmp1, mask1);
             var data1f = Sse2.ConvertToVector128Single(Sse.StaticCast<sbyte, int>(data1));
 
-            var ans = Sse.Add(Sse41.DotProduct(data0f, mul0, 0b11111000), Sse41.DotProduct(data1f, mul1, 0b11111000));
+            var ans = Sse2.Add(Sse2.ConvertToVector128Int32(Sse41.DotProduct(data0f, mul0, 0b11111000)), Sse2.ConvertToVector128Int32(Sse41.DotProduct(data1f, mul1, 0b11111000)));
+          return Sse41.Extract(ans, 3);
 
-            return Sse41.Extract(Sse2.ConvertToVector128Int32(ans), 3);
         }
         volatile int n;
         volatile int m;
